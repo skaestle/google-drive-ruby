@@ -3,13 +3,13 @@
 
 require "forwardable"
 
-require "google_drive/util"
-require "google_drive/error"
+require "google_drive_v0/util"
+require "google_drive_v0/error"
 
 
-module GoogleDrive
+module GoogleDriveV0
 
-    # Hash-like object returned by GoogleDrive::List#[].
+    # Hash-like object returned by GoogleDriveV0::List#[].
     class ListRow
         
         include(Enumerable)

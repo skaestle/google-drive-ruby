@@ -6,7 +6,7 @@ require "uri"
 Net::HTTP.version_1_2
 
 
-module GoogleDrive
+module GoogleDriveV0
 
     class ApiClientFetcher
         
@@ -24,21 +24,16 @@ module GoogleDrive
               return @client_response.body
             end
 
-            attr_reader(:client_response)
-
         end
 
         def initialize(client)
           @client = client
-          # Sets virtually infinite default timeout because some operations (e.g., uploading
-          # a large files/spreadsheets) can take very long.
-          @client.connection.options[:timeout] ||= 100000000
-          @drive = @client.discovered_api("drive", "v2")
         end
 
-        attr_reader(:client, :drive)
+        attr_reader(:client)
         
         def request_raw(method, url, data, extra_header, auth)
+          p [method, url, data, extra_header, auth]
           client_response = @client.execute(
               :http_method => method,
               :uri => url,

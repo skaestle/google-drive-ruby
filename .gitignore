@@ -1,7 +1,8 @@
 exp
+doc
 vendor
 .bundle
-test/config.json
+test/account.yaml
 *~
 *.gem
 .rvmrc
